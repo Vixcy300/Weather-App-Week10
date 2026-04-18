@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Search, Loader2, Droplets, Wind, Gauge, Eye, Sunrise, Sunset, MapPin, AlertCircle, Clock, Sun, Moon, Zap } from 'lucide-react';
+import { Search, Loader2, Droplets, Wind, Gauge, Eye, Sunrise, Sunset, MapPin, AlertCircle, Clock, Sun, Moon, Zap, Navigation } from 'lucide-react';
 import './WeatherWidget.css';
 
 const WeatherWidget = () => {
@@ -202,7 +202,27 @@ const WeatherWidget = () => {
         </div>
       )}
 
-      {weatherData && (
+      {/* Skeleton Loaders for clean UX transition */}
+      {isLoading && !error && (
+        <div className="dashboard-grid">
+          <div className="hero-card glass-panel flex-center">
+            <div className="skeleton-pulse" style={{ width: '60%', height: '30px', margin: '0 auto', borderRadius: '8px' }}></div>
+            <div className="skeleton-pulse" style={{ width: '200px', height: '200px', margin: '2rem auto', borderRadius: '50%' }}></div>
+            <div className="skeleton-pulse" style={{ width: '40%', height: '80px', margin: '0 auto', borderRadius: '8px' }}></div>
+          </div>
+          <div className="metrics-grid">
+            <div className="metric-card glass-panel"><div className="skeleton-pulse" style={{ width: '100%', height: '100%', borderRadius: '8px' }}></div></div>
+            <div className="metric-card glass-panel"><div className="skeleton-pulse" style={{ width: '100%', height: '100%', borderRadius: '8px' }}></div></div>
+            <div className="metric-card glass-panel"><div className="skeleton-pulse" style={{ width: '100%', height: '100%', borderRadius: '8px' }}></div></div>
+            <div className="metric-card glass-panel"><div className="skeleton-pulse" style={{ width: '100%', height: '100%', borderRadius: '8px' }}></div></div>
+          </div>
+          <div className="astro-card glass-panel flex-center">
+            <div className="skeleton-pulse" style={{ width: '80%', height: '60px', borderRadius: '8px' }}></div>
+          </div>
+        </div>
+      )}
+
+      {weatherData && !isLoading && (
         <div className="dashboard-grid">
           {/* Main Hero Card */}
           <div className="hero-card glass-panel animate-scale-in">
@@ -236,8 +256,13 @@ const WeatherWidget = () => {
             </div>
             
             <div className="metric-card glass-panel animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="metric-header"><Wind size={20} /> Wind</div>
-              <div className="metric-value">{weatherData.wind.speed} <span>m/s</span></div>
+              <div className="metric-header"><Wind size={20} /> Wind Compass</div>
+              <div className="wind-compass-container">
+                <div className="metric-value">{weatherData.wind.speed} <span>m/s</span></div>
+                <div className="compass-needle" style={{ transform: `rotate(${weatherData.wind.deg}deg)` }}>
+                  <Navigation size={28} className="needle-icon" />
+                </div>
+              </div>
             </div>
 
             <div className="metric-card glass-panel animate-fade-in" style={{ animationDelay: '0.3s' }}>
