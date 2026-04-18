@@ -1,0 +1,62 @@
+/* Footer styling */
+.app-footer {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--glass-border);
+}
+
+.footer-subtext {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.heart-icon {
+  color: #fb7185;
+  animation: pulse 2s infinite;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+  .app-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .footer-divider {
+    width: 50%;
+    height: 1px;
+    margin: 0.25rem 0;
+  }
+}
