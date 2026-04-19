@@ -76,7 +76,7 @@ const WeatherWidget = () => {
     document.body.setAttribute('data-theme', theme);
 
     let bgGradient = theme === 'dark' 
-      ? "linear-gradient(-45deg, #0f172a, #1e293b, #0f172a)"
+      ? "linear-gradient(-45deg, #000000, #0a0a0a, #000000)"
       : "linear-gradient(-45deg, #e2e8f0, #f8fafc, #e2e8f0)";
 
     if (weatherData) {
@@ -87,18 +87,18 @@ const WeatherWidget = () => {
       if (theme === 'dark') {
         if (main.includes('clear')) {
           bgGradient = isNight 
-            ? "linear-gradient(-45deg, #1e1b4b, #312e81, #0f172a)" 
-            : "linear-gradient(-45deg, #0ea5e9, #38bdf8, #0284c7)";
+            ? "linear-gradient(-45deg, #000000, #050515, #000000)" 
+            : "linear-gradient(-45deg, #000000, #022c43, #000000)";
         } else if (main.includes('cloud')) {
           bgGradient = isNight 
-            ? "linear-gradient(-45deg, #1e293b, #334155, #1e293b)" 
-            : "linear-gradient(-45deg, #64748b, #94a3b8, #475569)";
+            ? "linear-gradient(-45deg, #000000, #0f1012, #000000)" 
+            : "linear-gradient(-45deg, #000000, #1a1c1e, #000000)";
         } else if (main.includes('rain') || main.includes('drizzle')) {
-          bgGradient = "linear-gradient(-45deg, #1e293b, #3b82f6, #1e293b)";
+          bgGradient = "linear-gradient(-45deg, #000000, #041020, #000000)";
         } else if (main.includes('thunder')) {
-          bgGradient = "linear-gradient(-45deg, #2e1065, #4c1d95, #1e1b4b)";
+          bgGradient = "linear-gradient(-45deg, #000000, #0d0118, #000000)";
         } else if (main.includes('snow')) {
-          bgGradient = "linear-gradient(-45deg, #cbd5e1, #f1f5f9, #94a3b8)";
+          bgGradient = "linear-gradient(-45deg, #000000, #10151a, #000000)";
         }
       } else {
         // Light theme dynamic backgrounds
@@ -137,8 +137,8 @@ const WeatherWidget = () => {
         {/* Left Side: Live Connect Module */}
         <div className="top-side left-side">
           <div className="live-module glass-panel hover-scale">
-            <Zap size={16} className="live-icon" />
-            <span>Telemetry Online</span>
+            <div className="status-dot live-icon"></div>
+            <span>Online</span>
           </div>
         </div>
 

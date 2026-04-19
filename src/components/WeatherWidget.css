@@ -57,6 +57,14 @@
   animation: pulse 2s infinite;
 }
 
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+
 .theme-toggle {
   padding: 0.75rem;
   border-radius: 50%;

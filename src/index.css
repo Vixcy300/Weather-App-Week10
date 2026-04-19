@@ -2,9 +2,9 @@
 
 :root {
   --primary-color: #3b82f6;
-  --glass-bg: rgba(20, 20, 25, 0.4);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(0, 0, 0, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
   --text-main: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.6);
   --accent: #38bdf8;
