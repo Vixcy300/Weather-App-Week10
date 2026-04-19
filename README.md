@@ -16,4 +16,4 @@ Tech Stack
 
 
 ---
-*Developed as part of the Week 10 Project - ATMOS Weather App.*
+* Week 10 Project - ATMOS Weather App.*
